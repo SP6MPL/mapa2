@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PICO-TRACKER // GLOBAL MISSION CONTROL</title>
+    <!-- Leaflet Engine Core -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Telemetry Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Premium Vector Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="cyber-ring"></div>
+            <div class="glitch-title">PICO-CONNECT</div>
+            <div class="status-bar"><div class="status-progress"></div></div>
+            <div class="status-text">INITIALIZING GLOBAL TELEMETRY FEED...</div>
+        </div>
+    </div>
+    <div class="cyber-grid"></div>
+    <div class="dashboard-container">
+        <header class="corp-header">
+            <div class="logo-area">
+                <i class="fa-solid fa-satellite-dish pulse-icon"></i>
+                <div class="logo-text">
+                    <h1>STRATO-LINK<span>v5.0</span></h1>
+                    <p>ENTERPRISE MISSION MANAGEMENT ENGINE</p>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="stat-mini"><span class="label">NETWORK LINK:</span><span class="value status-online"><i class="fa-solid fa-circle"></i> SECURE FEED</span></div>
+                <div class="stat-mini"><span class="label">DATA ROUTER:</span><span class="value">SONDEHUB API</span></div>
+                <div class="stat-mini hidden-mobile"><span class="label">OPERATIONAL TIME:</span><span id="live-clock" class="value">00:00:00 UTC</span></div>
+            </div>
+        </header>
+        <div class="dashboard-body">
+            <aside class="sidebar">
+                <div class="metrics-grid">
+                    <div class="metric-card active-card">
+                        <i class="fa-solid fa-jet-fighter-up card-icon"></i>
+                        <div class="metric-info"><span class="num" id="count-active">0</span><span class="txt">AIRBORNE MISSIONS</span></div>
+                    </div>
+                    <div class="metric-card landed-card">
+                        <i class="fa-solid fa-box-archive card-icon"></i>
+                        <div class="metric-info"><span class="num" id="count-landed">0</span><span class="txt">TERMINATED MISSIONS</span></div>
+                    </div>
+                </div>
+                <div class="panel-section">
+                    <h2 class="section-title"><i class="fa-solid fa-radar"></i> STRATOSPHERIC ROSTER</h2>
+                    <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="balloon-search" placeholder="Query callsign network..."></div>
+                    <div class="balloon-list-wrapper">
+                        <div class="group-title active-color"><i class="fa-solid fa-tower-broadcast"></i> ACTIVE TRACKS</div>
+                        <div id="active-list" class="balloon-group-list"></div>
+                        <div class="group-title landed-color"><i class="fa-solid fa-circle-down"></i> LANDED / DOWNED ARTIFACTS</div>
+                        <div id="landed-list" class="balloon-group-list"></div>
+                    </div>
+                </div>
+                <div class="sidebar-footer"><span>CLASSIFICATION: ENTERPRISE STANDARD</span><span>&copy; 2026 SP6MPL PLATFORMS</span></div>
+            </aside>
+            <main class="map-wrapper">
+                <div class="map-border-glow"></div>
+                <div id="map"></div>
+                <div class="map-hud-overlay">
+                    <button class="hud-btn" id="btn-fit-all"><i class="fa-solid fa-maximize"></i> FIT OPERATIONAL AREA</button>
+                    <button class="hud-btn" id="btn-toggle-grid"><i class="fa-solid fa-border-all"></i> RADAR GRID</button>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
